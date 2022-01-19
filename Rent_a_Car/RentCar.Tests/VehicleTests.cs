@@ -257,6 +257,7 @@ namespace RentCar.Tests
 
             //Assert
             Assert.IsType<Data.Model.Vehicle>(item);
+
         }
     }
 }
