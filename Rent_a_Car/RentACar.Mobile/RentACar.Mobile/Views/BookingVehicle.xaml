@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:RentACar.Mobile.ViewModels"
+			 mc:Ignorable="d"
+             x:Class="RentACar.Mobile.Views.BookingVehicle"
+             BackgroundColor="LightBlue"
+			 >
+
+	<ContentPage.BindingContext>
+		<vm:BookingVehicleViewModel />
+	</ContentPage.BindingContext>
+
+	<ContentPage.Content>
+        <StackLayout Padding="50">
+
+			<Label FontSize="Large" HorizontalOptions="Center" Text="Book this car"></Label>
+
+			<Label Text="FirstName"></Label>
+			<Entry Text="{Binding FirstName}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Last Name"></Label>
+			<Entry Text="{Binding LastName}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Phone "></Label>
+			<Entry Text="{Binding Phone}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Email"></Label>
+			<Entry Text="{Binding Email}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Manufacturer name"></Label>
+			<Entry Text="{Binding ManufacturerName}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Model name"></Label>
+			<Entry Text="{Binding ModelName}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Start date"></Label>
+			<DatePicker Date="{Binding StartDate}"></DatePicker>
+			
+			<Label Text="End date"></Label>
+			<DatePicker Date="{Binding EndDate}"></DatePicker>
+
+			<Button Command="{Binding RentCommand}" Text="Book this car" Font="Bold,17"></Button>
+			
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

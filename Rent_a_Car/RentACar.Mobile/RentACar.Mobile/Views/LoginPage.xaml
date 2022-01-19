@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:RentACar.Mobile.ViewModels"
+			 xmlns:converters="clr-namespace:RentACar.Mobile.Converters"
+			 mc:Ignorable="d"
+             x:Class="RentACar.Mobile.Views.LoginPage"
+             BackgroundColor="LightBlue"
+			 >
+
+	<ContentPage.BindingContext>
+		<vm:LoginViewModel />
+	</ContentPage.BindingContext>
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+		<converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+	</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+        <StackLayout Padding="100" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+			<Image HeightRequest="300" WidthRequest="300" HorizontalOptions="Center" x:Name="imgDisp" ></Image>
+
+			<Label FontSize="Large" Text="Please sign in"
+			HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+
+			<Label Text="Username"
+                HorizontalOptions="CenterAndExpand" />
+			<Entry Text="{Binding Username}"></Entry>
+
+			<Label Text="Password"
+                HorizontalOptions="CenterAndExpand" />
+			<Entry IsPassword="True" Text="{Binding Password}"></Entry>
+
+			<Button Command="{Binding LoginCommand}" Font="Bold,17" Text="Login"></Button>
+
+			<Button  
+                Font="Bold,17"
+                Text="You don't have account, Create a free account" HorizontalOptions="End" Clicked="Register_Clicked">
+			</Button>
+
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

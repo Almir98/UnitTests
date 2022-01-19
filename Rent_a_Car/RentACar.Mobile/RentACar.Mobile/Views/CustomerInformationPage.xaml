@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:viewModels="clr-namespace:RentACar.Mobile.ViewModels"
+			 mc:Ignorable="d"
+             x:Class="RentACar.Mobile.Views.CustomerInformationPage"
+             BackgroundColor="LightBlue"
+			 >
+
+	<ContentPage.BindingContext>
+		<viewModels:CustomerInformationViewModel/>
+	</ContentPage.BindingContext>
+
+	<NavigationPage.TitleView >
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Rent Site"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="20" TextColor="White" />
+		</StackLayout>
+	</NavigationPage.TitleView>
+	
+	<ContentPage.Content>
+		<StackLayout Padding="50">
+
+			<Label FontSize="Large" HorizontalOptions="Center" Text="Profile information"></Label>
+
+			<Label Text="First name"></Label>
+			<Entry Text="{Binding FirstName}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Last name"></Label>
+			<Entry Text="{Binding LastName}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Phone"></Label>
+			<Entry Text="{Binding Phone}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Email"></Label>
+			<Entry Text="{Binding Email}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Username"></Label>
+			<Entry Text="{Binding Username}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="City name"></Label>
+			<Entry Text="{Binding City}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Button Clicked="Button_Clicked_Edit" Text="Edit informations" Font="Bold,17" ></Button>
+
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

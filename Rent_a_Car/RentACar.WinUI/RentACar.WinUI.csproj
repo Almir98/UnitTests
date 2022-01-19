@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43C76097-F4F1-4FB2-802F-BD363595FA81}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RentACar.WinUI</RootNamespace>
+    <AssemblyName>RentACar.WinUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Flurl, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.2.8.2\lib\net40\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.2.4.2\lib\net46\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIService.cs" />
+    <Compile Include="Forms\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAddBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddBranch.Designer.cs">
+      <DependentUpon>frmAddBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAddManufacturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddManufacturer.Designer.cs">
+      <DependentUpon>frmAddManufacturer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAddVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddVehicle.Designer.cs">
+      <DependentUpon>frmAddVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAddVehicleModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddVehicleModel.Designer.cs">
+      <DependentUpon>frmAddVehicleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAllBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAllBooking.Designer.cs">
+      <DependentUpon>frmAllBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAllComments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAllComments.Designer.cs">
+      <DependentUpon>frmAllComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBookingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBookingDetails.Designer.cs">
+      <DependentUpon>frmBookingDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBranchDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBranchDetails.Designer.cs">
+      <DependentUpon>frmBranchDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCommentDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCommentDetails.Designer.cs">
+      <DependentUpon>frmCommentDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCommReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCommReport.Designer.cs">
+      <DependentUpon>frmCommReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCustomerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCustomerDetails.Designer.cs">
+      <DependentUpon>frmCustomerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCustomers.Designer.cs">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmIndex.Designer.cs">
+      <DependentUpon>frmIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRating.Designer.cs">
+      <DependentUpon>frmRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRatingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRatingDetails.Designer.cs">
+      <DependentUpon>frmRatingDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRatingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRatingReport.Designer.cs">
+      <DependentUpon>frmRatingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVehicleDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmVehicleDetails.Designer.cs">
+      <DependentUpon>frmVehicleDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewAllBranches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewAllBranches.Designer.cs">
+      <DependentUpon>frmViewAllBranches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewAllVehicles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewAllVehicles.Designer.cs">
+      <DependentUpon>frmViewAllVehicles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAddBranch.resx">
+      <DependentUpon>frmAddBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAddManufacturer.resx">
+      <DependentUpon>frmAddManufacturer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAddVehicle.resx">
+      <DependentUpon>frmAddVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAddVehicleModel.resx">
+      <DependentUpon>frmAddVehicleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAllBooking.resx">
+      <DependentUpon>frmAllBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAllComments.resx">
+      <DependentUpon>frmAllComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBookingDetails.resx">
+      <DependentUpon>frmBookingDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBranchDetails.resx">
+      <DependentUpon>frmBranchDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCommentDetails.resx">
+      <DependentUpon>frmCommentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCommReport.resx">
+      <DependentUpon>frmCommReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCustomerDetails.resx">
+      <DependentUpon>frmCustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCustomers.resx">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmIndex.resx">
+      <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRating.resx">
+      <DependentUpon>frmRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRatingDetails.resx">
+      <DependentUpon>frmRatingDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRatingReport.resx">
+      <DependentUpon>frmRatingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVehicleDetails.resx">
+      <DependentUpon>frmVehicleDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewAllBranches.resx">
+      <DependentUpon>frmViewAllBranches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewAllVehicles.resx">
+      <DependentUpon>frmViewAllVehicles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\CommentReport.rdlc" />
+    <EmbeddedResource Include="Reports\RatingReport.rdlc" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\RentaCar.Data.ViewModel.frmAllCommentsVM.datasource" />
+    <None Include="Properties\DataSources\RentaCar.Data.ViewModel.frmRatingVM.datasource" />
+    <None Include="Properties\DataSources\RentACar.WinUI.Forms.frmAllComments.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RentaCar.Data\RentaCar.Data.csproj">
+      <Project>{2c5b3e7e-8457-4a4a-bd89-f79e934a7b2c}</Project>
+      <Name>RentaCar.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addPhotoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

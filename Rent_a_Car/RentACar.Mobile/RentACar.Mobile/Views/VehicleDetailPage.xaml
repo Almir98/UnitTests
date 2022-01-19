@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm1="clr-namespace:RentACar.Mobile.ViewModels"
+			 xmlns:converters="clr-namespace:RentACar.Mobile.Converters"
+			 mc:Ignorable="d"
+             x:Class="RentACar.Mobile.Views.VehicleDetailPage"
+             BackgroundColor="LightBlue"
+			 >
+
+	<ContentPage.BindingContext>
+		<vm1:VehicleDetailsViewModel></vm1:VehicleDetailsViewModel>
+	</ContentPage.BindingContext>
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout Padding="10">
+				<StackLayout>
+					<Image WidthRequest="250" HeightRequest="250" Source="{Binding vehicle.Image,Converter={StaticResource imgConv}}"></Image>
+				</StackLayout>
+				<StackLayout Padding="50">
+
+					<Label >Manufacturer:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.VehicleModel.Manufacturer.ManufacturerName}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Vehicle model:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.VehicleModel.ModelName}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Registration number:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.RegistrationNumber}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Vehicle number:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.VehicleNumber}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Daily price:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.DailyPrice}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Number of seats:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.NumberOfSeats}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Manufacturer date:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.ManufacturerDate}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Mileage:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.Mileage}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Transmission:</Label>
+					<Entry IsReadOnly="True" Text="{Binding vehicle.Transmission}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Status:</Label>
+					<CheckBox IsChecked="{Binding vehicle.Status}" BackgroundColor="LightGray"></CheckBox>
+
+					<Label >Description:</Label>
+					<Entry HeightRequest="100" IsReadOnly="True" Text="{Binding vehicle.Description}" BackgroundColor="LightGray"></Entry>
+
+					<Label >Average car rating :</Label>
+					<Entry IsReadOnly="True" Text="{Binding AverageRating }" BackgroundColor="LightGray"></Entry>
+
+					<Button Clicked="Booking_Clicked" Text="Booking" Font="Bold,17"></Button>
+
+					<Label FontSize="15" Text="Vehicles with similar ratings"></Label>
+				
+					<ListView HeightRequest="200" ItemsSource="{Binding RecommendedVehicleList}" BackgroundColor="AntiqueWhite" >
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<ViewCell>
+									<StackLayout Padding="10" Orientation="Horizontal">
+										<StackLayout>
+											<Image WidthRequest="200" HeightRequest="200" Source="{Binding Image,Converter={StaticResource imgConv}}"></Image>
+										</StackLayout>
+										<StackLayout Orientation="Vertical">
+
+											<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+												<Label Text="Manufacturer name : "
+												Style="{DynamicResource LargeLabel}" />
+												<Label Text="{Binding VehicleModel.Manufacturer.ManufacturerName} " 
+												d:Text="{Binding .}"
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource ListItemTextStyle}" 
+												FontSize="15" />
+											</StackLayout>
+
+											<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+												<Label Text="Model name : "
+												Style="{DynamicResource LargeLabel}" />
+												<Label Text="{Binding VehicleModel.ModelName} " 
+												d:Text="{Binding .}"
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource ListItemTextStyle}" 
+												FontSize="15" />
+											</StackLayout>
+
+											<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+												<Label Text="Price per day : "
+												Style="{DynamicResource LargeLabel}" />
+												<Label Text="{Binding DailyPrice} " 
+												d:Text="{Binding .}"
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource ListItemTextStyle}" 
+												FontSize="15" />
+											</StackLayout>
+
+											<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+												<Label Text="Mileage :"
+												Style="{DynamicResource LargeLabel}" />
+												<Label Text="{Binding Mileage} " 
+												d:Text="{Binding .}"
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource ListItemTextStyle}" 
+												FontSize="15" />
+											</StackLayout>
+
+											<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+												<Label Text="Transmission :"
+												Style="{DynamicResource LargeLabel}" />
+												<Label Text="{Binding Transmission} " 
+												d:Text="{Binding .}"
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource ListItemTextStyle}" 
+												FontSize="15" />
+											</StackLayout>
+										</StackLayout>
+									</StackLayout>
+								</ViewCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:RentACar.Mobile.ViewModels"
+			 mc:Ignorable="d"
+             x:Class="RentACar.Mobile.Views.RatingPage"
+             BackgroundColor="LightBlue"
+			 >
+
+	<ContentPage.BindingContext>
+		<vm:RatingViewModel />
+	</ContentPage.BindingContext>
+
+	<ContentPage.Content>
+        <StackLayout Padding="50">
+
+			<Label FontSize="Large" HorizontalOptions="Center" Text="Please leave a mark for car!"></Label>
+
+			<Label Text="First name"></Label>
+			<Entry Text="{Binding FirstName}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Last name"></Label>
+			<Entry Text="{Binding LastName}" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+			
+			<Label Text="Manufacturer name"></Label>
+			<Entry Text="{Binding Manufacturer }" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Manufacturer name"></Label>
+			<Entry Text="{Binding ModelName }" IsReadOnly="True" BackgroundColor="LightGray"></Entry>
+
+			<Label Text="Date"></Label>
+			<DatePicker Date="{Binding RatingDate}" IsEnabled="False"></DatePicker>
+
+			<Label Text="Rating value (1-10)"></Label>
+			<Entry MaxLength="10" Text="{Binding Mark}"></Entry>
+
+			<Button Command="{Binding RatingCommand}" Text="Save mark" Font="Bold,17"></Button>
+
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

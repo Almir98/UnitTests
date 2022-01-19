@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:RentACar.Mobile.ViewModels"
+			 xmlns:converters="clr-namespace:RentACar.Mobile.Converters"
+			 mc:Ignorable="d"
+             x:Class="RentACar.Mobile.Views.VehiclePage"
+             BackgroundColor="LightBlue"
+			 >
+	
+	<ContentPage.BindingContext>
+		<vm:VehicleViewModel />
+	</ContentPage.BindingContext>
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+        <StackLayout Padding="20">
+
+			<Label FontSize="Medium">Filter by manufacturer name</Label>
+			<Entry Placeholder="Audi, BMW or etc." Text="{Binding ManufacturerName}"></Entry>
+			<Label FontSize="Medium">Filter by branch name</Label>
+			<Entry Placeholder="Kramar,Zoom or etc." Text="{Binding BranchName}"></Entry>
+			<Button Text="Search" HorizontalOptions="Center" Command="{Binding SearchVehicles}"  Font="Bold,17"></Button>
+
+			<ListView ItemsSource="{Binding VehicleList}" ItemTapped="ListView_ItemTapped" BackgroundColor="LightBlue">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Padding="10" Orientation="Horizontal">
+								<StackLayout>
+								<Image WidthRequest="280" HeightRequest="280" Source="{Binding Image,Converter={StaticResource imgConv}}"></Image>
+								</StackLayout>
+
+								<StackLayout Orientation="Vertical" Grid.Row="1">
+
+									<Label Text="{Binding VehicleModel.Manufacturer.ManufacturerName}" 
+									d:Text="{Binding .}"
+									LineBreakMode="NoWrap" 
+									Style="{DynamicResource ListItemTextStyle}" 
+									FontSize="16" />
+
+									<Label Text="{Binding VehicleModel.ModelName}" 
+									d:Text="{Binding .}"
+									LineBreakMode="NoWrap" 
+									Style="{DynamicResource ListItemTextStyle}" 
+									FontSize="16" />
+
+									<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+										<Label Text="Registration number : "
+										Style="{DynamicResource LargeLabel}" />
+
+										<Label Text="{Binding RegistrationNumber}" 
+										d:Text="{Binding .}"
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="15" />
+									</StackLayout>
+
+									<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+										<Label Text="Price per day : "
+										Style="{DynamicResource LargeLabel}" />
+
+										<Label Text="{Binding DailyPrice}" 
+										d:Text="{Binding .}"
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="15" />
+									</StackLayout>
+
+									<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+										<Label Text="Mileage : "
+										Style="{DynamicResource LargeLabel}" />
+
+										<Label Text="{Binding Mileage}" 
+										d:Text="{Binding .}"
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="15" />
+									</StackLayout>
+
+									<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+										<Label Text="Transmission : "
+										Style="{DynamicResource LargeLabel}" />
+
+										<Label Text="{Binding Transmission}" 
+										d:Text="{Binding .}"
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="15" />
+									</StackLayout>
+
+									<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+										<Label Text="Number of seats : "
+										Style="{DynamicResource LargeLabel}" />
+
+										<Label Text="{Binding NumberOfSeats}" 
+										d:Text="{Binding .}"
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="15" />
+									</StackLayout>
+
+									<StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+										<Label Text="Branch : "
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource LargeLabel}"  />
+
+										<Label Text="{Binding Branch.BranchName}" 
+										d:Text="{Binding .}"
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="15" />
+									</StackLayout>
+
+								</StackLayout>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
