@@ -3,9 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RentaCar.Data.Requests.Branch;
 using RentACar.WebAPI.Database;
 using RentACar.WebAPI.Service;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace RentCar.Tests
@@ -36,7 +34,7 @@ namespace RentCar.Tests
         }
 
         [Fact]
-        public void Get_FilterEmpty_ReturnOk()
+        public void ShouldFilterEmpty_ReturnNumberOfRows()
         {
             //Arrange
             _context.Branch.Add(new Branch
@@ -81,13 +79,11 @@ namespace RentCar.Tests
 
             //Assert
             Assert.NotEmpty(list);
-            Assert.Equal(3, list.Count);
             Assert.IsType<List<Data.Model.Branch>>(list);
         }
 
-
         [Fact]
-        public void Insert_NewBranch_ReturnOk()
+        public void ShouldInsertBranch_ReturnList()
         {
             //Arrange
             BranchUpsert request = new BranchUpsert
@@ -107,12 +103,12 @@ namespace RentCar.Tests
             var list = _branchService.Get(new BranchSearchRequest());
 
             //Assert
-            Assert.Equal(4, list.Count);
+            Assert.Equal(5, list.Count);
+            Assert.IsType<List<Data.Model.Branch>>(list);
         }
 
-
         [Fact]
-        public void GetById_ShouldGetBranch_ReturnOk()
+        public void ShouldGetBranch_ReturnTypeAndNotNull()
         {
             //Arrange
             _context.Branch.Add(new Branch
@@ -133,10 +129,11 @@ namespace RentCar.Tests
 
             //Assert
             Assert.IsType<Data.Model.Branch>(item);
+            Assert.NotNull(item);
         }
 
         [Fact]
-        public void Delete_ShouldRemove_ReturnOk()
+        public void ShouldRemove_ReturnNotNull()
         {
             //Arrange
             _context.Branch.Add(new Branch
@@ -158,7 +155,39 @@ namespace RentCar.Tests
 
             //Assert
             Assert.IsType<List<Data.Model.Branch>>(list);
+            Assert.NotNull(list);
+        }
+
+        [Fact]
+        public void ShouldGetUpdateBranch_ReturnExistingModel()
+        {
+            //Arrange
+            _context.Branch.Add(new Branch
+            {
+                BranchId = 7,
+                BranchName = "Tomic",
+                PhoneNumber = "2253243",
+                Adress = "Test adresa 5",
+                OpenTime = "08:00",
+                CloseTime = "17:00",
+                Description = "Opis2",
+                CityId = 5
+            });
+            _context.SaveChanges();
+
+            var item = _branchService.GetByID(7);
+            //Act
+            BranchUpsert request = new BranchUpsert
+            {
+                BranchName = "VW Centar"
+            };
+
+            var result = _branchService.Update(item.BranchId, request);
+            _context.SaveChanges();
+
+            //Assert
+            Assert.IsType<Data.Model.Branch>(item);
+            Assert.Equal("VW Centar", result.BranchName);
         }
     }
-
 }

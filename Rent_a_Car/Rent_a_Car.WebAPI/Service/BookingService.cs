@@ -16,12 +16,12 @@ namespace RentACar.WebAPI.Service
         public override List<Data.Model.Booking> Get(BookingSearchRequest search)
         {
             var query = _context.Set<Database.Booking>().Include(x => x.Customer)
-                .Include(e=>e.Vehicle)
-                .Include(e=>e.Vehicle.VehicleModel)
-                .Include(e=>e.Vehicle.VehicleModel.Manufacturer)
+                .Include(e => e.Vehicle)
+                .Include(e => e.Vehicle.VehicleModel)
+                .Include(e => e.Vehicle.VehicleModel.Manufacturer)
                 .AsQueryable();
 
-            if(search.StartDate!=null && search.EndDate!=null)
+            if (search.StartDate != null && search.EndDate != null)
             {
                 var startdate = search.StartDate.Value.Date;
                 var enddate = search.EndDate.Value.Date;
@@ -76,6 +76,5 @@ namespace RentACar.WebAPI.Service
 
             return _mapper.Map<Data.Model.Booking>(booking);
         }
-
     }
 }

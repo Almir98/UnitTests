@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Rent_a_Car.WebAPI.Mappers;
 using RentaCar.Data.Requests.Vehicle;
 using RentACar.WebAPI.Database;
 using RentACar.WebAPI.Service;
@@ -37,7 +36,7 @@ namespace RentCar.Tests
 
 
         [Fact]
-        public void Get_FilterByRegistrationNumber_ReturnOk()
+        public void ShouldFilterByRegistrationNumber_ReturnItem()
         {
             //Arrange
             _context.Vehicle.Add(new RentACar.WebAPI.Database.Vehicle
@@ -109,7 +108,37 @@ namespace RentCar.Tests
         }
 
         [Fact]
-        public void Get_FilterEmpty_ReturnOk()
+        public void ShouldFilterContainsRegistrationNumber_ReturnObject()
+        {
+            //Arrange
+            _context.Vehicle.Add(new RentACar.WebAPI.Database.Vehicle
+            {
+                VehicleId = 9,
+                RegistrationNumber = "R36-E-467",
+                VehicleNumber = 2,
+                DailyPrice = 90,
+                Description = "Auto u super stanju",
+                ManufacturerDate = DateTime.Today,
+                Mileage = "195.000",
+                Transmission = "Automatik",
+                NumberOfSeats = 5,
+                Status = false,
+                BranchId = 2,
+                FuelTypeId = 2,
+                VehicleTypeId = 2,
+                VehicleModelId = 2
+            });
+            _context.SaveChanges();
+
+            //Act
+            var item = _vehicleService.GetByID(7);
+
+            //Assert
+            Assert.Contains("-", item.RegistrationNumber);
+        }
+
+        [Fact]
+        public void ShouldFilterEmpty_ReturnList()
         {
             //Arrange
             _context.Vehicle.Add(new RentACar.WebAPI.Database.Vehicle
@@ -141,7 +170,7 @@ namespace RentCar.Tests
         }
 
         [Fact]
-        public void Delete_ShouldRemove_ReturnOk()
+        public void ShouldShouldDelete_ReturnType()
         {
             //Arrange
             _context.Vehicle.Add(new RentACar.WebAPI.Database.Vehicle
@@ -193,7 +222,7 @@ namespace RentCar.Tests
         }
 
         [Fact]
-        public void Update_UpdateRegisterNumber_ReturnOk()
+        public void ShouldUpdateRegisterNumber_ReturnExistingModel()
         {
             //Arrange
             _context.Vehicle.Add(new RentACar.WebAPI.Database.Vehicle
@@ -214,7 +243,7 @@ namespace RentCar.Tests
                 VehicleModelId = 2
             });
             _context.SaveChanges();
-            
+
             var item = _vehicleService.GetByID(7);
 
             //Act
@@ -231,7 +260,7 @@ namespace RentCar.Tests
         }
 
         [Fact]
-        public void GetById_ShouldGetVehicle_ReturnOk()
+        public void ShouldGetVehicle_ReturnType()
         {
             //Arrange
             _context.Vehicle.Add(new RentACar.WebAPI.Database.Vehicle
