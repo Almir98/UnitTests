@@ -260,7 +260,7 @@ namespace RentCar.Tests
         }
 
         [Fact]
-        public void ShouldGetVehicle_ReturnType()
+        public void ShouldGetVehicle_ReturnOk()
         {
             //Arrange
             _context.Vehicle.Add(new RentACar.WebAPI.Database.Vehicle
