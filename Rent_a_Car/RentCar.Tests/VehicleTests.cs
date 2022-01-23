@@ -102,7 +102,7 @@ namespace RentCar.Tests
 
             //Assert
             Assert.NotEmpty(list);
-            Assert.Equal(1, list.Count);
+            Assert.Equal(list.Count, _context.Vehicle.Local.Count);
             Assert.IsType<Data.Model.Vehicle>(list[0]);
             Assert.Single(list);
         }
@@ -260,7 +260,7 @@ namespace RentCar.Tests
         }
 
         [Fact]
-        public void ShouldGetVehicle_ReturnOk()
+        public void ShouldGetVehicle_ReturnType()
         {
             //Arrange
             _context.Vehicle.Add(new RentACar.WebAPI.Database.Vehicle
