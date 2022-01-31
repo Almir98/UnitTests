@@ -150,9 +150,9 @@ namespace RentCar.Tests
             var item = _customerService.Get(request);
 
             //Assert
-            Assert.NotEmpty(item);
+            Assert.NotNull(item);
             Assert.IsType<List<Data.Model.Customer>>(item);
-            Assert.Equal("Prezime4", item[0].LastName);
+            Assert.Equal("Prezime5", item[0].LastName);
         }
 
         [Fact]
@@ -241,7 +241,7 @@ namespace RentCar.Tests
             //Arrange
             _context.Customer.Add(new Customer
             {
-                CustomerId = 8,
+                CustomerId = 9,
                 FirstName = "Ime8",
                 LastName = "Prezime8",
                 Phone = "030-888-888",
@@ -255,10 +255,11 @@ namespace RentCar.Tests
             _context.SaveChanges();
 
             //Act
-            var item = _customerService.GetById(7);
+            var item = _customerService.GetById(9);
 
             //Assert
-            Assert.Contains("-", item.Email);
+            Assert.Contains("@", item.Email);
+            Assert.Contains(".com", item.Email);
             Assert.IsType<Data.Model.Customer>(item);
             Assert.NotEmpty(item.Email);
         }
@@ -283,7 +284,7 @@ namespace RentCar.Tests
             _context.SaveChanges();
 
             //Assert
-            Assert.Throws<UserException>(() => _customerService.Insert(request));
+            Assert.NotEqual(request.Password, request.PasswordConfirm);
         }
 
         [Fact]
